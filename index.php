@@ -1,7 +1,6 @@
 <?php
     require "botToken.php";
-    // Armazena o token de autenticação da API do telegram
-    //$botToken = "";
+
     // Armazena a URL do bot
     $website = "https://api.telegram.org/bot".$botToken;
 
@@ -89,6 +88,9 @@
                 date_default_timezone_set('America/Sao_Paulo');
                 $dateTime = date('d-m-Y H:i');
                 file_get_contents($website."/sendmessage?chat_id=".$chatId."&text=".$dateTime);
+            }
+            if($text == "/source code"){
+                file_get_contents($website."/sendmessage?chat_id=".$chatId."&text=https://github.com/lucasvinco/ayambot");
             }
             $atualizacao = false;
         }
